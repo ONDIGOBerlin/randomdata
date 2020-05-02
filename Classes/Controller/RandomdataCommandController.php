@@ -74,7 +74,7 @@ class RandomdataCommandController extends Command
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        Bootstrap::initializeBackendAuthentication();
+        Bootstrap::getInstance()->initializeBackendAuthentication();
         /** @var ObjectManager $objectManager */
         $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
         /** @var RandomdataService $randomdataService */
