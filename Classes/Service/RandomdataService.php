@@ -167,7 +167,6 @@ class RandomdataService
      */
     protected function loadConfigurationFile($configurationFile)
     {
-        $configurationFile = GeneralUtility::getFileAbsFileName(realpath($configurationFile));
         if (!is_file($configurationFile)) {
             throw new ConfigurationFileNotFoundException('Configuration file "' . $configurationFile . '" not found', 1554378907);
         }
@@ -336,7 +335,7 @@ class RandomdataService
     protected function generateAndInsertRecords($configurationKey, $table, $pid, array $fields, array $itemConfiguration)
     {
         $count = (int)$this->getItemConfigurationValue($itemConfiguration, 'count');
-        
+
         if (empty($count)) {
             throw new CountNotFoundForItemException('Count not set in configuration for item "' . $configurationKey . '"', 1554383433);
         }
